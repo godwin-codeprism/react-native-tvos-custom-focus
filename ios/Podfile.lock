@@ -264,6 +264,12 @@ PODS:
   - React-jsinspector (0.69.6-0)
   - React-logger (0.69.6-0):
     - glog
+  - react-native-safe-area-context (4.4.1):
+    - RCT-Folly
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - ReactCommon/turbomodule/core
   - React-perflogger (0.69.6-0)
   - React-RCTAnimation (0.69.6-0):
     - RCT-Folly (= 2021.06.28.00-v2)
@@ -322,6 +328,35 @@ PODS:
     - React-jsi (= 0.69.6-0)
     - React-logger (= 0.69.6-0)
     - React-perflogger (= 0.69.6-0)
+  - RNReanimated (2.8.0):
+    - DoubleConversion
+    - FBLazyVector
+    - FBReactNativeSpec
+    - glog
+    - RCT-Folly
+    - RCTRequired
+    - RCTTypeSafety
+    - React-callinvoker
+    - React-Core
+    - React-Core/DevSupport
+    - React-Core/RCTWebSocket
+    - React-CoreModules
+    - React-cxxreact
+    - React-jsi
+    - React-jsiexecutor
+    - React-jsinspector
+    - React-RCTAnimation
+    - React-RCTBlob
+    - React-RCTImage
+    - React-RCTLinking
+    - React-RCTNetwork
+    - React-RCTSettings
+    - React-RCTText
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - RNScreens (3.18.2):
+    - React-Core
+    - React-RCTImage
   - SocketRocket (0.6.0)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -372,6 +407,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -382,6 +418,8 @@ DEPENDENCIES:
   - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
+  - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -443,6 +481,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-safe-area-context:
+    :path: "../node_modules/react-native-safe-area-context"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTAnimation:
@@ -463,6 +503,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
+  RNScreens:
+    :path: "../node_modules/react-native-screens"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -499,6 +543,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 2e58a8faffdd27294d98fdde643ddbc1c6ed33b4
   React-jsinspector: 68d1645356b5b387d9e4afbe6a42a3c22965be7d
   React-logger: 3df6481eff39de103fbc963cf9355332697264a4
+  react-native-safe-area-context: 99b24a0c5acd0d5dcac2b1a7f18c49ea317be99a
   React-perflogger: b4286f50e775f757b356ed77d993e70ab4041c6e
   React-RCTAnimation: dbf81b8d90128de2413ba659269bcc2d104d7794
   React-RCTBlob: 5384bf7d73e16b1c61324e58991236bd1bbd569e
@@ -509,10 +554,12 @@ SPEC CHECKSUMS:
   React-RCTText: daf7703b2dffeff0dd260dce6c6e81deae5fbf82
   React-runtimeexecutor: c32935cd32852438f6a0c8a984586cc2f619e654
   ReactCommon: efbc13574c4423e34eed0f2b9b23816e6f315b8e
+  RNReanimated: 1d3142a17f44d91f2a2de408a0c2f14ef181a4c3
+  RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   Yoga: 2657fb10c2eafe6baab96befd7c517d28af46500
   YogaKit: 1e22bf2228b3a5ac8cc88965153061ae92c494b5
 
 PODFILE CHECKSUM: 24e0cb10e31ace20e6ece10c1ac7dfa547dba703
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.3

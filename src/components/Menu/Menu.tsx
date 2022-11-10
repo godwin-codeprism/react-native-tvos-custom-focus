@@ -10,7 +10,15 @@ const menuItems = [
   { title: 'Contact', link: '/contact' },
 ]
 
-export default function Menu({setMenuHasFocus, menuHasFocus, setCardFocus}) {
+/// inteface for the props
+interface MenuProps {
+  setMenuHasFocus: (value: boolean) => void;
+  menuHasFocus: boolean;
+  firstCardRef: React.RefObject<TouchableOpacity>;
+  setCardFocus: () => void;
+}
+
+export default function Menu({setMenuHasFocus, menuHasFocus, setCardFocus}:MenuProps) {
 
 
   const currentHubRef = React.useRef<TouchableOpacity>(null);

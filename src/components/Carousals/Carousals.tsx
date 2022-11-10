@@ -1,5 +1,5 @@
-import { View, Text, FlatList, StyleSheet, TouchableOpacity, NativeModules } from 'react-native'
-import React, { ComponentClass, ComponentElement, useEffect, useRef } from 'react'
+import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native'
+import React, {  } from 'react'
 
 const items = [
   {
@@ -19,18 +19,16 @@ const items = [
   }
 ]
 
-const Carousals = React.forwardRef(({setMenuHasFocus, menuHasFocus}, ref) => {
+/// inteface for the props
+interface CarousalsProps {
+  setMenuHasFocus: (value: boolean) => void;
+  menuHasFocus: boolean;
+  goToDetails: () => void;
+}
 
-  const first = useRef<TouchableOpacity>(null);
+const Carousals = React.forwardRef<TouchableOpacity, CarousalsProps>(({setMenuHasFocus, menuHasFocus, goToDetails}:CarousalsProps, ref) => {
 
-  const cardPress = () => {
-    if(first){
-      first.current?.setNativeProps({hasTVPreferredFocus: true});
-    }
-  }
-
-  const onCardFocus = ({cindex, index}) => {
-    console.log("I have focus now", cindex, index);
+  const onCardFocus: (value: {cindex:number,index:number}) => void = ({cindex, index}) => {
     if(menuHasFocus){
       setMenuHasFocus(false);
     }
@@ -47,7 +45,7 @@ const Carousals = React.forwardRef(({setMenuHasFocus, menuHasFocus}, ref) => {
             keyExtractor={(item, index) => `card-${index}`}
             horizontal
             renderItem={({ item, index }) => (
-              <TouchableOpacity style={CarousalsStyles.card} ref={index === 0 && cIndex === 0 ? ref : null} onPress={cardPress} onFocus={() => onCardFocus({cindex: cIndex, index: index})}>
+              <TouchableOpacity style={CarousalsStyles.card} ref={index === 0 && cIndex === 0 ? ref : null} onPress={goToDetails} onFocus={() => onCardFocus({cindex: cIndex, index: index})}>
                 <Text> Card {index} </Text>
                 </TouchableOpacity>
             )}
