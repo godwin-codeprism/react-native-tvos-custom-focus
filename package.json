@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "Open XCWorkSpace": "cd ios && open FocusPOC.xcworkspace && cd ..",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
