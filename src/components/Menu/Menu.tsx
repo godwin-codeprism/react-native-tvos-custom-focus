@@ -16,7 +16,19 @@ const menuItems = [
   {title: 'Contact', link: '/contact'},
 ];
 
-export default function Menu({setMenuHasFocus, menuHasFocus, setCardFocus}) {
+/// inteface for the props
+interface MenuProps {
+  setMenuHasFocus: (value: boolean) => void;
+  menuHasFocus: boolean;
+  firstCardRef: React.RefObject<TouchableOpacity>;
+  setCardFocus: () => void;
+}
+
+export default function Menu({
+  setMenuHasFocus,
+  menuHasFocus,
+  setCardFocus,
+}: MenuProps) {
   const currentHubRef = menuItems.map(() =>
     React.useRef<TouchableOpacity>(null),
   );
@@ -33,6 +45,19 @@ export default function Menu({setMenuHasFocus, menuHasFocus, setCardFocus}) {
       setCardFocus();
       // firstCardRef.current?.setNativeProps({hasTVPreferredFocus: true});
     }
+  };
+  // const currentHubRef = React.useRef<TouchableOpacity>(null);
+
+  const onFocus = (index: number) => {
+    setActiveIndex(index);
+    setLastActiveIndex(index);
+    // // if(!menuHasFocus){
+    //   currentHubRef.current?.setNativeProps({hasTVPreferredFocus: true});
+    //   setMenuHasFocus(true);
+    // } else {
+    //   setCardFocus();
+    //   // firstCardRef.current?.setNativeProps({hasTVPreferredFocus: true});
+    // }
   };
 
   return (
@@ -56,16 +81,16 @@ export default function Menu({setMenuHasFocus, menuHasFocus, setCardFocus}) {
                 : MenuStyles.menuItems
             }
             onFocus={() => {
-              setActiveIndex(index);
-              setLastActiveIndex(index);
-              console.log('menu ', index);
+              onFocus(index);
+
+              // console.log('menu ', index);
             }}
             // onBlur={() => {
             //   console.log('onBlur', index)
             //   setLastActiveIndex(index);
             //   setActiveIndex(null);
             // }}
-            >
+          >
             <Text style={MenuStyles.item}>{item.title}</Text>
           </TouchableOpacity>
         ))}

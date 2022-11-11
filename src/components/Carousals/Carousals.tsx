@@ -36,12 +36,17 @@ const items = [
 const {width, height} = Dimensions.get('screen');
 const normalizedWidth = width / 1920;
 const normalizedHeight = height / 1080;
+interface CarousalsProps {
+  setMenuHasFocus: (value: boolean) => void;
+  menuHasFocus: boolean;
+  goToDetails: () => void;
+}
 
 export const getScaledValue = (value: number): number => {
   return value * normalizedWidth;
 };
 
-const Carousals = React.forwardRef(({setMenuHasFocus, menuHasFocus}, ref) => {
+const Carousals = React.forwardRef(({setMenuHasFocus, menuHasFocus,goToDetails}: CarousalsProps, ref) => {
   const EnableScrollAniamtions = true;
   const [currentCard, setCurrentCard] = useState<number | null>(null);
   const first = useRef<TouchableOpacity>(null);
@@ -128,7 +133,7 @@ const Carousals = React.forwardRef(({setMenuHasFocus, menuHasFocus}, ref) => {
                     : CarousalsStyles.card
                 }
                 ref={index === 0 && cIndex === 0 ? ref : null}
-                onPress={cardPress}
+                onPress={goToDetails}
                 onFocus={() => onCardFocus({cindex: cIndex, index: index})}>
                 <Text> Card {index} </Text>
               </TouchableOpacity>
